@@ -23,7 +23,7 @@ it('adds a new user to the list', () => {
   const { getByPlaceholderText, getByText } = render(<App />);
   
   // Find input fields and submit button by their placeholder and text content.
-  const nameInput = getByPlaceholderText('Name');
+  const nameInput = getByPlaceholderText('Namee');
   const emailInput = getByPlaceholderText('Email');
   const submitButton = getByText('Add User');
 
