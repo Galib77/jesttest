@@ -22,7 +22,7 @@ jobs:
 
     - name: Build
       run: |
-        npm install
-        npx webpack
-        npm test  
+        npm install --force
+        npx webpack --force
+        npm test  --force
 
