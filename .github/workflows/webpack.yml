@@ -1,28 +1,24 @@
-name: NodeJS with Webpack
+name: CI/CD Workflow
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: self-hosted
-
-    strategy:
-      matrix:
-        node-version: [16.x]
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v1
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: '14'
 
-    - name: Build
-      run: |
-        npm install --force
-        npx webpack --force
-        npm test  --force
+    - name: Install Dependencies
+      run: npm install
 
+    - name: Run Jest Tests
+      run: npm test
